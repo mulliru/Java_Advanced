@@ -1,5 +1,4 @@
-# Aula 02
+# Atenção!
 
-Data da aula 14/02/2024
+Este repositório contém o projeto que estamos desenvolvendo em aula e como é contínuo não faz sentido eu criar uma pasta para cada dia de aula
 
-Aqui você pode adicionar mais informações sobre o conteúdo da aula, tópicos exercícios e outros.
