@@ -13,6 +13,7 @@ public class HelloController {
     public String hello(Model model) {
         model.addAttribute("message", "Hello World!");
         return "hello"; // Nome do template HTML, ex: hello.html
+
     }
 
     @GetMapping("/ola2")

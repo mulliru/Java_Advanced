@@ -6,9 +6,16 @@
 </head>
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
+    <div th:object="${livro}">
     <h1>Livro: <span th:text="${livro.getTitulo()}"></span></h1>
-    <p>Autor(a): <span th:text="${livro.getAutor()}"></span></p>
-    <p>Categoria: <span th:text="${livro.getCategoria().getDescricao()}"></span></p>
+        <p>Autor(a): <span th:text="${livro.getAutor()}"></span></p>
+        <p>Categoria: <span th:text="${livro.getCategoria().getDescricao()}"></span></p>
+    </div>
+    <p><a th:href="@{/ola}">Olá</a> </p>
+    <span th:text="${1+1}"></span>
+    <form the
+        <input type="button" th:value="#{form.submit}">
+    </form>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
