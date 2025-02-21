@@ -3,6 +3,8 @@ package br.com.fiap.spring_mvc.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "tb_livro")
 @Data
@@ -18,6 +20,7 @@ public class Livro {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     @Column(name = "preco")
-    @Enumerated(EnumType.STRING)
-    private Preco preco;
+    private BigDecimal preco;
+    @Column(name = "isbn")
+    private String isbn;
 }
