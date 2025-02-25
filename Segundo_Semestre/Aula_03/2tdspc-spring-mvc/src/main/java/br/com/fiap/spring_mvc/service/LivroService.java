@@ -6,6 +6,8 @@ import br.com.fiap.spring_mvc.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -29,4 +31,26 @@ public class LivroService {
         livro.setIsbn(livroRequest.getIsbn());
         return livro;
     }
+
+    public LivroRequest livroToRequest(Livro livro) {
+        LivroRequest livroRequest = new LivroRequest();
+        livroRequest.setTitulo(livro.getTitulo());
+        livroRequest.setAutor(livro.getAutor());
+        livroRequest.setCategoria(livro.getCategoria());
+        livroRequest.setPreco(livro.getPreco());
+        livroRequest.setIsbn(livro.getIsbn());
+        return livroRequest;
+    }
+
+    public List<Livro> buscarLivros() {
+        return livroRepository.findAll();
+    }
+
+    public Livro buscarLivro(Long id) {
+        Optional<Livro> livro = livroRepository.findById(id);
+        return livro.orElse(null);
+    }
+
+
+
 }

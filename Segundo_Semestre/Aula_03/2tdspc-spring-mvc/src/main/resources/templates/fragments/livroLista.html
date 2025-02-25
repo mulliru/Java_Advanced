@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div>
+        <h2>Lista de livros cadastrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>ISBN</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="livro : ${listaLivros}">
+                    <td th:text="${livro.id}"></td>
+                    <td th:text="${livro.titulo}"></td>
+                    <td th:text="${livro.autor}"></td>
+                    <td th:text="${livro.categoria}"></td>
+                    <td th:text="${livro.preco}"></td>
+                    <td th:text="${livro.isbn}"></td>
+                    <td>
+                        <a th:href="@{/livro/edicao/{id}(id=${livro.id})}">Editar</a>
+                        <span> | </span>
+                        <a th:href="@{/livro/exclusao/{id}(id=${livro.id})}">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

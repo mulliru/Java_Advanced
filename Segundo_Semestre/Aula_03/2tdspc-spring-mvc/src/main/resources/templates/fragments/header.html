@@ -6,7 +6,10 @@
 </head>
 <body>
     <div th:fragment="header">
-        <h1>Exemplo de cabeçalho</h1>
+        <h1>Exemplo Virtual</h1>
+        <a th:href="@{/livro/cadastro}">Cadastrar livro</a>
+        <span> | </span>
+        <a th:href="@{/livro/lista}">Lista livros</a>
         <hr />
     </div>
 </body>
