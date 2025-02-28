@@ -7,9 +7,9 @@
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
     <div>
-        <form method="post" th:action="@{cadastrar}" th:object="${livroRequest}">
+        <form method="post" th:action="@{/livro/editar/{id}(id=${idLivro})}" th:object="${livro}">
             <h2>Edição de Livro</h2>
-            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="${idLivro}">
             <br>
             <table>
                 <tr>

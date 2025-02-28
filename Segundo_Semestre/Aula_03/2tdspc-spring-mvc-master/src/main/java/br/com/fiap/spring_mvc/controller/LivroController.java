@@ -17,7 +17,6 @@ public class LivroController {
     @Autowired
     LivroService livroService;
 
-
     @GetMapping("/cadastro")
     public ModelAndView livroCadastro() {
         ModelAndView mv = new ModelAndView("livroCadastro");
@@ -27,16 +26,15 @@ public class LivroController {
 
     @PostMapping("/cadastrar")
     public ModelAndView cadastrarLivro(@Valid @ModelAttribute LivroRequest livroRequest) {
-        // Mapear o livroResquest para o livro
-        // Salvar livro no bd
+        // mapear livroRequest para livro
+        // salvar livro no bd
         Livro livro = livroService.salvarLivro(livroRequest);
-        // Renderizar a página com a lista de livros cadastrados
+        // renderizar a página com a lista de livros cadastrados
         return listarLivros();
-
     }
 
     @GetMapping("/lista")
-    public ModelAndView listarLivros() {
+    public ModelAndView listarLivros(){
         List<Livro> livros = livroService.buscarLivros();
         ModelAndView mv = new ModelAndView("livroLista");
         mv.addObject("listaLivros", livros);
@@ -44,21 +42,26 @@ public class LivroController {
     }
 
     @GetMapping("/edicao/{id}")
-    public ModelAndView livroEdicao(@PathVariable Long id) {
+    public ModelAndView livroEdicao(@PathVariable Long id){
         Livro livro = livroService.buscarLivro(id);
         if (livro == null) {
             return listarLivros();
         }
         ModelAndView mv = new ModelAndView("livroEdicao");
         mv.addObject("idLivro", id);
-        mv.addObject("livroRequest", livroService.livroToRequest(livro));
+        mv.addObject("livro", livroService.livroToRequest(livro));
         return mv;
     }
 
-    @PostMapping("/editar")
-    public ModelAndView editarLivro(@Valid @ModelAttribute LivroRequest LivroRequet){
-        Livro livro = livroService.salvarLivro(LivroRequet);
+    @PostMapping("/editar/{id}")
+    public ModelAndView editarLivro(@PathVariable Long id, @Valid @ModelAttribute LivroRequest livroRequest){
+        livroService.atualizarLivro(id, livroRequest);
+        return listarLivros();
+    }
+
+    @GetMapping("/deletar/{id}")
+    public ModelAndView deletarLivro(@PathVariable Long id){
+        livroService.deletarLivro(id);
         return listarLivros();
     }
 }
-

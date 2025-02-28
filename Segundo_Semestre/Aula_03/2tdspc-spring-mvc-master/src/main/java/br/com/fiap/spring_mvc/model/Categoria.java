@@ -3,7 +3,7 @@ package br.com.fiap.spring_mvc.model;
 public enum Categoria {
     ROMANCE("Romance"),
     FICCAO("Ficção"),
-    FATASIA("Fantasia");
+    FANTASIA("Fantasia");
 
     private String descricao;
     Categoria(String descricao) {
