@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Edição de Livro</title>
+    <script th:src="@{webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
+    <link th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
 </head>
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
-    <div>
+    <div class="main-content">
         <form method="post" th:action="@{/livro/editar/{id}(id=${idLivro})}" th:object="${livro}">
             <h2>Edição de Livro</h2>
             <input type="hidden" th:field="${idLivro}">

@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Livros</title>
+    <link th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
+    <script th:src="@{webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
 </head>
 <body>
     <div th:replace="~{fragments/header :: header}"></div>
-    <div>
+    <div class="main-content">
         <h2>Lista de livros cadastrados</h2>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <td>ID</td>
                     <th>Título</th>
                     <th>Autor</th>
                     <th>Categoria</th>
@@ -36,6 +38,17 @@
                 </tr>
             </tbody>
         </table>
+        <div th:each="Livro : ${listaLivros}" th:attr="titulo=${livro.titulo}"></div>
+        <div th:each="Livro : ${listaLivros}" th:attr="autor=${livro.autor}"></div>
+        <div th:each="Livro : ${listaLivros}" th:attr="categoria=${livro.categoria}"></div>
+        <div th:each="Livro : ${listaLivros}" th:attr="preco=${livro.preco}"></div>
+        <div th:each="Livro : ${listaLivros}" th:attr="isbn=${livro.isbn}"></div>
+        <div th:each="Livro : ${listaLivros}" th:attr="id=${livro.id}"></div>
+
+            <br>
+
+            <br>
+                <strong>ID</strong> <span th
     </div>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
