@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="header">
+        <h1>Exemplo Virtual</h1>
+        <a th:href="@{/livro/cadastro}">Cadastrar livro</a>
+        <span> | </span>
+        <a th:href="@{/livro/lista}">Lista livros</a>
+        <hr />
+    </div>
+</body>
+</html>
