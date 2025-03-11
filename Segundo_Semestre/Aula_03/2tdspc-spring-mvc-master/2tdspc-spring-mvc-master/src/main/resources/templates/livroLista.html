@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Livros</title>
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <script th:src="@{/js/script.js}" defer></script>
+</head>
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div th:class="main_content">
+        <h2>Lista de livros cadastrados</h2>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID </th>
+                    <th>Título </th>
+                    <th>Ações </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="livro : ${listaLivros}">
+                    <td th:text="${livro.id}">ID</td>
+                    <td th:text="${livro.titulo}">Título</td>
+                    <td>
+                        <button th:attr="onclick=|showModal('infoModal' + ${livro.id})|">Detalhes</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div th:each="livro : ${listaLivros}" th:attr="id=${'infoModal' + livro.id}" style="display: none;">
+            <br>
+            <h3>Detalhes do Livro</h3>
+            <p>
+                <strong>ID:</strong> <span th:text="${livro.id}"></span><br>
+                <strong>Título:</strong> <span th:text="${livro.titulo}"></span><br>
+                <strong>Autor:</strong> <span th:text="${livro.autor}"></span><br>
+                <strong>Categoria:</strong> <span th:text="${livro.categoria.descricao}"></span><br>
+                <strong>Preço:</strong> <span th:text="${livro.preco}"></span><br>
+                <strong>ISBN:</strong> <span th:text="${livro.isbn}"></span><br>
+                <a th:href="@{/livro/edicao/{id}(id = ${livro.id})}">Editar</a>
+                <span> | </span>
+                <a th:href="@{/livro/deletar/{id}(id = ${livro.id})}">Deletar</a>
+            </p>
+            <button th:attr="onclick=|hideModal('infoModal' + ${livro.id})|">Fechar</button>
+        </div>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

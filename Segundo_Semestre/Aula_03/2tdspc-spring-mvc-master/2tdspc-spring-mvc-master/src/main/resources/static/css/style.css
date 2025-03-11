@@ -1,0 +1,24 @@
+.header {
+    background-color: rgba(127, 127, 127, 0.25);
+    color: darkblue;
+}
+
+.main_content {
+    padding: 50px 0 50px 50px;
+}
+
+th {
+    width: 100px;
+}
+
+
+.error {
+    color: red;
+}
+
+
+
+label {
+    width: 150px;
+    padding: 10px 10px 10px 0;
+}
