@@ -7,8 +7,8 @@
 <body>
     <div th:fragment="footer">
         <hr />
-        <h2>Spring MVC + Thymeleaf</h2>
-        FIAP TDS 2025 - Java Advanced - Todos os direitos reservados
+        <h2><span th:text="${#messages.msg('rodape.titulo')}"></span></h2>
+        <span th:text="${#messages.msg('rodape.mensagem')}"></span>
     </div>
 </body>
 </html>

@@ -29,19 +29,22 @@ public class LivroController {
         if (result.hasErrors()) {
             return "livroCadastro";
         }
+        // mapear livroRequest para livro
+        // salvar livro no bd
         livroService.salvarLivro(livroRequest);
+        // renderizar a página com a lista de livros cadastrados
         return listarLivros(model);
     }
 
     @GetMapping("/lista")
-    public String listarLivros(Model model){
+    public String listarLivros(Model model) {
         List<Livro> livros = livroService.buscarLivros();
         model.addAttribute("listaLivros", livros);
         return "livroLista";
     }
 
     @GetMapping("/edicao/{id}")
-    public String livroEdicao(@PathVariable Long id, Model model){
+    public String livroEdicao(@PathVariable Long id, Model model) {
         Livro livro = livroService.buscarLivro(id);
         if (livro == null) {
             return listarLivros(model);
@@ -52,10 +55,7 @@ public class LivroController {
     }
 
     @PostMapping("/editar/{id}")
-    public String editarLivro(@PathVariable Long id, @Valid LivroRequest livroRequest, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "livroEdicao";
-        }
+    public String editarLivro(@PathVariable Long id, @Valid @ModelAttribute LivroRequest livroRequest, Model model) {
         livroService.atualizarLivro(id, livroRequest);
         return listarLivros(model);
     }
