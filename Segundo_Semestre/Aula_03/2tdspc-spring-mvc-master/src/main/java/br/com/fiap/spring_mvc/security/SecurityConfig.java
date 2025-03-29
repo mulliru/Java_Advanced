@@ -1,6 +1,5 @@
 package br.com.fiap.spring_mvc.security;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -16,8 +15,8 @@ public class SecurityConfig {
         return http.authorizeHttpRequests(
                 authorizeRequests ->
                     authorizeRequests
-                        .requestMatchers("/").permitAll()
-                        .anyRequest().authenticated()
+                            .requestMatchers("/").permitAll()
+                            .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 ->
                         oauth2.defaultSuccessUrl("/livro/lista"))

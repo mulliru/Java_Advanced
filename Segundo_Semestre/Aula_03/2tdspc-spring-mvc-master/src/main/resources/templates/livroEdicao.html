@@ -2,57 +2,49 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{edicao.titulo}">Edição de Livro</title>
+    <title>Edição de Livro</title>
     <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
     <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
     <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<div th:replace="~{fragments/header :: header}"></div>
-<div th:class="main_content">
-    <form method="post" th:action="@{/livro/editar/{id}(id=${idLivro})}" th:object="${livro}">
-        <h2><span th:text="#{edicao.titulo}">Edição de Livro</span></h2>
-        <br>
-
-        <div>
-            <label for="titulo"><span th:text="#{livro.attr.titulo}">Título:</span></label>
-            <input type="text" id="titulo" th:field="*{titulo}">
-            <p th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" th:errorclass="error"></p>
-        </div>
-
-        <div>
-            <label for="autor"><span th:text="#{livro.attr.autor}">Autor:</span></label>
-            <input type="text" id="autor" th:field="*{autor}">
-            <p th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" th:errorclass="error"></p>
-        </div>
-
-        <div>
-            <label for="categoria"><span th:text="#{livro.attr.categoria}">Categoria:</span></label>
-            <select id="categoria" th:field="*{categoria}">
-                <option value="ROMANCE" th:text="#{livro.attr.categoria.ROMANCE}">Romance</option>
-                <option value="FICCAO" th:text="#{livro.attr.categoria.FICCAO}">Ficção</option>
-                <option value="FANTASIA" th:text="#{livro.attr.categoria.FANTASIA}">Fantasia</option>
-            </select>
-            <p th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}" th:errorclass="error"></p>
-        </div>
-
-        <div>
-            <label for="preco"><span th:text="#{livro.attr.preco}">Preço:</span></label>
-            <input type="text" id="preco" th:field="*{preco}">
-            <p th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}" th:errorclass="error"></p>
-        </div>
-
-        <div>
-            <label for="isbn"><span th:text="#{livro.attr.isbn}">ISBN:</span></label>
-            <input type="text" id="isbn" th:field="*{isbn}">
-            <p th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" th:errorclass="error"></p>
-        </div>
-
-        <div>
-            <button type="submit"><span th:text="#{edicao.botao.atualizar}">Atualizar</span></button>
-        </div>
-    </form>
-</div>
-<div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div>
+        <form method="post" th:action="@{/livro/editar/{id}(id=${idLivro})}" th:object="${livro}">
+            <h2>Edição de Livro</h2>
+            <input type="hidden" th:field="${idLivro}">
+            <br>
+            <table>
+                <tr>
+                    <td>Título:</td>
+                    <td><input type="text" th:field="*{titulo}"></td>
+                </tr>
+                <tr>
+                    <td>Autor:</td>
+                    <td><input type="text" th:field="*{autor}"></td>
+                </tr>
+                <tr>
+                    <td>Categoria:</td>
+                    <td>
+                        <select name="categoria" th:field="*{categoria}">
+                            <option name="ROMANCE" value="ROMANCE">Romance</option>
+                            <option name="FICCAO" value="FICCAO">Ficção</option>
+                            <option name="FANTASIA" value="FANTASIA">Fantasia</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preço:</td>
+                    <td><input type="text" th:field="*{preco}"></td>
+                </tr>
+                <tr>
+                    <td>ISBN:</td>
+                    <td><input type="text" th:field="*{isbn}"></td>
+                </tr>
+                <tr><td colspan="2"><input type="submit" value="Atualizar"></td></tr>
+            </table>
+        </form>
+    </div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
