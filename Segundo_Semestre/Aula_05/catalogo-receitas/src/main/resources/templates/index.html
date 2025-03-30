@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: head"></head>
+<head th:replace="~{fragments/header :: head}"></head>
 <body>
 
-<th:block th:replace="fragments/header :: header"></th:block>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
 
 <section class="hero">
     <div class="hero-text">
@@ -25,7 +25,7 @@
     </div>
 </section>
 
-<th:block th:replace="fragments/footer :: footer"></th:block>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
 
 </body>
 </html>

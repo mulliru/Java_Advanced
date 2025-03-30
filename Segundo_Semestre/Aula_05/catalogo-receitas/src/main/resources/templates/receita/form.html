@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:form="http://www.thymeleaf.org/thymeleaf-spring">
 <head th:replace="~{fragments/header :: head}"></head>
 <body>
 
@@ -10,25 +12,25 @@
     <h2 th:text="${#fields.hasErrors()} ? 'Corrija os erros abaixo' : #{botao.novaReceita}"></h2>
     <input type="hidden" th:field="*{id}"/>
 
-    <div>
+    <div th:classappend="${#fields.hasErrors('nome')} ? 'has-error'">
         <label th:text="#{label.nome}"></label>
         <input type="text" th:field="*{nome}" />
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
     </div>
 
-    <div>
+    <div th:classappend="${#fields.hasErrors('descricao')} ? 'has-error'">
         <label th:text="#{label.descricao}"></label>
         <textarea th:field="*{descricao}"></textarea>
         <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
     </div>
 
-    <div>
+    <div th:classappend="${#fields.hasErrors('tempoPreparo')} ? 'has-error'">
         <label th:text="#{label.tempoPreparo}"></label>
         <input type="number" th:field="*{tempoPreparo}" />
         <span th:if="${#fields.hasErrors('tempoPreparo')}" th:errors="*{tempoPreparo}"></span>
     </div>
 
-    <div>
+    <div th:classappend="${#fields.hasErrors('dificuldade')} ? 'has-error'">
         <label th:text="#{label.dificuldade}"></label>
         <select th:field="*{dificuldade}">
             <option value="">-- Selecione --</option>

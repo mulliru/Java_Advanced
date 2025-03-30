@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: head"></head>
+<head th:replace="~{fragments/header :: head}"></head>
 <body>
 
 <th:block th:replace="fragments/header :: header"></th:block>
@@ -16,13 +16,13 @@
         <th th:text="#{label.descricao}">Descrição</th>
         <th th:text="#{label.tempoPreparo}">Tempo de Preparo</th>
         <th th:text="#{label.dificuldade}">Dificuldade</th>
-        <th th:text="#{label.acoes}">Ações</th>
+        <th th:text="#{label.acoes}">Acoes</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="receita : ${receitas}">
         <td th:text="${receita.nome}">Nome</td>
-        <td th:text="${receita.descricao}">Descrição</td>
+        <td th:text="${receita.descricao}">Descricao</td>
         <td th:text="${receita.tempoPreparo}">Tempo</td>
         <td th:text="${receita.dificuldade}">Dificuldade</td>
         <td>

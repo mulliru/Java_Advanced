@@ -141,6 +141,17 @@ a.button-link:hover {
     border-radius: 8px;
 }
 
+.has-error input,
+.has-error textarea,
+.has-error select {
+    border: 1px solid #e74c3c;
+    background-color: #fff0f0;
+}
+
+.has-error span {
+    color: #e74c3c;
+    font-size: 13px;
+}
 
 footer {
     margin-top: 40px;

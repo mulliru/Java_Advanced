@@ -18,7 +18,7 @@ public class ReceitaController {
 
     @GetMapping
     public String listarReceitas(Model model) {
-        model.addAttribute("listaReceitas", receitaRepository.findAll());
+        model.addAttribute("receitas", receitaRepository.findAll());
         return "receita/list";
     }
 
@@ -29,13 +29,14 @@ public class ReceitaController {
     }
 
     @PostMapping("/salvar")
-    public String salvarReceita(@Valid @ModelAttribute("receita") Receita receita, BindingResult result) {
+    public String salvarReceita(@Valid @ModelAttribute("receita") Receita receita, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "receita/form";
         }
         receitaRepository.save(receita);
         return "redirect:/receitas";
     }
+
 
     @GetMapping("/editar/{id}")
     public String editarReceita(@PathVariable Long id, Model model) {

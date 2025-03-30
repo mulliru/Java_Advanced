@@ -3,7 +3,7 @@
 <head th:replace="~{fragments/header :: head}"></head>
 <body>
 
-<th:block th:replace="~{fragments/header :: header}"></th:block>
+<th:block th:replace="fragments/header :: header"></th:block>
 
 <form th:action="@{/ingredientes/salvar}" th:object="${ingrediente}" method="post">
 
@@ -39,7 +39,7 @@
 
 </form>
 
-<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+<th:block th:replace="fragments/footer :: footer"></th:block>
 
 </body>
 </html>

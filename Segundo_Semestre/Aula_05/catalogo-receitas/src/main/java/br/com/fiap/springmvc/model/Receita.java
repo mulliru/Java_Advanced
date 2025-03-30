@@ -24,8 +24,10 @@ public class Receita {
     @Min(value = 1, message = "O tempo deve ser maior que 0")
     private Integer tempoPreparo;
 
+    @NotNull(message = "A dificuldade é obrigatória")
     @Enumerated(EnumType.STRING)
     private Dificuldade dificuldade;
+
 
     @OneToMany(mappedBy = "receita", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ingrediente> ingredientes = new ArrayList<>();
