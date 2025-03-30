@@ -1,0 +1,150 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffafa;
+    color: #4c4c4c;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #AC6F90;
+    margin-bottom: 15px;
+}
+
+nav {
+    background-color: #fbeaec;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #AC6F90;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #7c4a61;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background-color: #f7d8e3;
+    color: #4c4c4c;
+}
+
+table, th, td {
+    border: 1px solid #e0cfd6;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+form {
+    background-color: #fff3f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(172, 111, 144, 0.1);
+    margin-top: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d8b4c0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+button {
+    background-color: #AC6F90;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #915b74;
+}
+
+a.button-link {
+    color: #AC6F90;
+    padding: 8px 12px;
+    border: 1px solid #AC6F90;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-left: 10px;
+}
+
+a.button-link:hover {
+    background-color: #AC6F90;
+    color: #fff;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffe3ec;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h2 {
+    color: #d63384;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #444;
+}
+
+.hero-img img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}

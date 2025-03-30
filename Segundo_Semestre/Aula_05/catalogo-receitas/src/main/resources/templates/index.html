@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2 th:text="#{mensagem.boasVindas}">Bem-vindo ao Catálogo de Receitas</h2>
+        <p th:text="#{mensagem.intro}">Gerencie suas receitas favoritas e os ingredientes de cada uma delas com facilidade!</p>
+
+        <div style="margin-top: 20px;">
+            <a th:href="@{/receitas}">
+                <button th:text="#{botao.verReceitas}">Ver Receitas</button>
+            </a>
+            <a th:href="@{/ingredientes}">
+                <button th:text="#{botao.verIngredientes}">Ver Ingredientes</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-img">
+        <img src="/img/grandma.png" alt="Vovó cozinheira">
+    </div>
+</section>
+
+<th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

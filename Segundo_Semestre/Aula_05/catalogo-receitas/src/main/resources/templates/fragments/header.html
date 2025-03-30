@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="#{titulo.catalogo}">Catalogo de Receitas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<header th:fragment="header">
+    <h1>
+        <a th:href="@{/}" th:text="#{titulo.catalogo}" style="text-decoration: none; color: inherit;"></a>
+    </h1>
+    <nav>
+        <a th:href="@{/receitas}" th:text="#{titulo.receitas}">Receitas</a> |
+        <a th:href="@{/ingredientes}" th:text="#{titulo.ingredientes}">Ingredientes</a>
+    </nav>
+
+
+
+    <hr/>
+</header>

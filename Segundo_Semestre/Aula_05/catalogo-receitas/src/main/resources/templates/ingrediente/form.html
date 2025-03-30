@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<form th:action="@{/ingredientes/salvar}" th:object="${ingrediente}" method="post">
+
+    <h2 th:text="${#fields.hasErrors()} ? 'Corrija os erros abaixo' : #{botao.novoIngrediente}"></h2>
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <div>
+        <label th:text="#{label.nome}"></label>
+        <input type="text" th:field="*{nome}" />
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    </div>
+
+    <div>
+        <label th:text="#{label.quantidade}"></label>
+        <input type="text" th:field="*{quantidade}" />
+        <span th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"></span>
+    </div>
+
+    <div>
+        <label th:text="#{label.receita}"></label>
+        <select th:field="*{receita}">
+            <option value="" th:text="#{label.selecione}">-- Selecione --</option>
+            <option th:each="receita : ${receitas}" th:value="${receita.id}" th:text="${receita.nome}"></option>
+        </select>
+        <span th:if="${#fields.hasErrors('receita')}" th:errors="*{receita}"></span>
+    </div>
+
+    <div>
+        <button type="submit" th:text="#{botao.salvar}"></button>
+        <a th:href="@{/ingredientes}" th:text="#{botao.cancelar}"></a>
+    </div>
+
+</form>
+
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+</body>
+</html>

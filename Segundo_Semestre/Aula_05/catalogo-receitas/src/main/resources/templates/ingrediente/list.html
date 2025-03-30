@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<h2 th:text="#{titulo.ingredientes}"></h2>
+
+<a th:href="@{/ingredientes/novo}" th:text="#{botao.novoIngrediente}"></a>
+
+<table>
+    <thead>
+    <tr>
+        <th th:text="#{label.nome}">Nome</th>
+        <th th:text="#{label.quantidade}">Quantidade</th>
+        <th th:text="#{label.receita}">Receita</th>
+        <th th:text="#{label.acoes}">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingrediente : ${ingredientes}">
+        <td th:text="${ingrediente.nome}">Nome</td>
+        <td th:text="${ingrediente.quantidade}">Quantidade</td>
+        <td th:text="${ingrediente.receita.nome}">Receita</td>
+        <td>
+            <a th:href="@{'/ingredientes/editar/' + ${ingrediente.id}}" th:text="#{botao.editar}">Editar</a> |
+            <a th:href="@{'/ingredientes/excluir/' + ${ingrediente.id}}" th:text="#{botao.excluir}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<body>
+
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<form th:action="@{/receitas/salvar}" th:object="${receita}" method="post">
+
+    <h2 th:text="${#fields.hasErrors()} ? 'Corrija os erros abaixo' : #{botao.novaReceita}"></h2>
+    <input type="hidden" th:field="*{id}"/>
+
+    <div>
+        <label th:text="#{label.nome}"></label>
+        <input type="text" th:field="*{nome}" />
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    </div>
+
+    <div>
+        <label th:text="#{label.descricao}"></label>
+        <textarea th:field="*{descricao}"></textarea>
+        <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+    </div>
+
+    <div>
+        <label th:text="#{label.tempoPreparo}"></label>
+        <input type="number" th:field="*{tempoPreparo}" />
+        <span th:if="${#fields.hasErrors('tempoPreparo')}" th:errors="*{tempoPreparo}"></span>
+    </div>
+
+    <div>
+        <label th:text="#{label.dificuldade}"></label>
+        <select th:field="*{dificuldade}">
+            <option value="">-- Selecione --</option>
+            <option th:each="dif : ${T(br.com.fiap.springmvc.model.Dificuldade).values()}"
+                    th:value="${dif}"
+                    th:text="#{__${dif.labelKey}__}"></option>
+        </select>
+        <span th:if="${#fields.hasErrors('dificuldade')}" th:errors="*{dificuldade}"></span>
+    </div>
+
+    <div>
+        <button type="submit" th:text="#{botao.salvar}"></button>
+        <a th:href="@{/receitas}" th:text="#{botao.cancelar}"></a>
+    </div>
+</form>
+
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+</body>
+</html>

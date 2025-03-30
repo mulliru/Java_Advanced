@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<th:block th:replace="fragments/header :: header"></th:block>
+
+<h2 th:text="#{titulo.receitas}">Receitas</h2>
+
+<a th:href="@{/receitas/nova}" th:text="#{botao.novaReceita}">Nova Receita</a>
+
+<table>
+    <thead>
+    <tr>
+        <th th:text="#{label.nome}">Nome</th>
+        <th th:text="#{label.descricao}">Descrição</th>
+        <th th:text="#{label.tempoPreparo}">Tempo de Preparo</th>
+        <th th:text="#{label.dificuldade}">Dificuldade</th>
+        <th th:text="#{label.acoes}">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="receita : ${receitas}">
+        <td th:text="${receita.nome}">Nome</td>
+        <td th:text="${receita.descricao}">Descrição</td>
+        <td th:text="${receita.tempoPreparo}">Tempo</td>
+        <td th:text="${receita.dificuldade}">Dificuldade</td>
+        <td>
+            <a th:href="@{'/receitas/editar/' + ${receita.id}}" th:text="#{botao.editar}">Editar</a> |
+            <a th:href="@{'/receitas/excluir/' + ${receita.id}}" th:text="#{botao.excluir}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<th:block th:replace="fragments/footer :: footer"></th:block>
+
+</body>
+</html>
