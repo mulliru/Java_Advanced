@@ -1,18 +1,18 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fffafa;
+    background-color: #faf7ff;
     color: #4c4c4c;
     margin: 0;
     padding: 20px;
 }
 
 h1, h2 {
-    color: #AC6F90;
+    color: #CDA8EA;
     margin-bottom: 15px;
 }
 
 nav {
-    background-color: #fbeaec;
+    background-color: #f1e4fb;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -21,13 +21,13 @@ nav {
 nav a {
     margin-right: 15px;
     text-decoration: none;
-    color: #AC6F90;
+    color: #A374C4;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #7c4a61;
+    color: #8B5CB3;
     text-decoration: underline;
 }
 
@@ -41,12 +41,12 @@ table {
 }
 
 table thead {
-    background-color: #f7d8e3;
+    background-color: #e8d3f7;
     color: #4c4c4c;
 }
 
 table, th, td {
-    border: 1px solid #e0cfd6;
+    border: 1px solid #d8c6e9;
 }
 
 th, td {
@@ -55,10 +55,10 @@ th, td {
 }
 
 form {
-    background-color: #fff3f7;
+    background-color: #f9f2fe;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(172, 111, 144, 0.1);
+    box-shadow: 0 0 8px rgba(205, 168, 234, 0.1);
     margin-top: 20px;
 }
 
@@ -72,7 +72,7 @@ textarea,
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #d8b4c0;
+    border: 1px solid #d2bde9;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 14px;
@@ -80,7 +80,7 @@ select {
 }
 
 button {
-    background-color: #AC6F90;
+    background-color: #CDA8EA;
     color: white;
     padding: 10px 16px;
     border: none;
@@ -91,13 +91,13 @@ button {
 }
 
 button:hover {
-    background-color: #915b74;
+    background-color: #B68FD7;
 }
 
 a.button-link {
-    color: #AC6F90;
+    color: #A374C4;
     padding: 8px 12px;
-    border: 1px solid #AC6F90;
+    border: 1px solid #A374C4;
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s;
@@ -105,7 +105,7 @@ a.button-link {
 }
 
 a.button-link:hover {
-    background-color: #AC6F90;
+    background-color: #A374C4;
     color: #fff;
 }
 
@@ -113,19 +113,25 @@ a.button-link:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffe3ec;
+    background-color: #f2e5fc;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 .hero-text {
     max-width: 50%;
 }
 
+.hero-text a{
+    margin-right: 10px;
+    display: inline-block;
+}
+
 .hero-text h2 {
-    color: #d63384;
+    color: #B068D8;
     font-size: 2.5em;
     margin-bottom: 10px;
 }
